@@ -12,9 +12,11 @@ public class RollerAgent : Agent
     public Transform Target;
     public float forceMultiplier = 10;
 
+    bool collideFlag = false;
 
     void Start () {
         rBody = GetComponent<Rigidbody>();
+        collideFlag = false;
     }
 
     public override void OnEpisodeBegin()
@@ -53,11 +55,17 @@ public class RollerAgent : Agent
         rBody.AddForce(controlSignal * forceMultiplier);
 
         // Rewards
-        float distanceToTarget = Vector3.Distance(transform.localPosition, Target.localPosition);
+        //float distanceToTarget = Vector3.Distance(transform.localPosition, Target.localPosition);
 
         // Reached target
-        if (distanceToTarget < 1.42f)
+        // if (distanceToTarget < 1.42f)
+        // {
+        //     SetReward(1.0f);
+        //     EndEpisode();
+        // }
+        if (collideFlag)
         {
+            collideFlag = false;
             SetReward(1.0f);
             EndEpisode();
         }
@@ -72,7 +80,14 @@ public class RollerAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         var continuousActionsOut = actionsOut.ContinuousActions;
-        continuousActionsOut[0] = Input.GetAxis("Horizontal");
-        continuousActionsOut[1] = Input.GetAxis("Vertical");
+        continuousActionsOut[0] = -Input.GetAxis("Horizontal");
+        continuousActionsOut[1] = -Input.GetAxis("Vertical");
+    }
+
+    private void OnCollisionEnter(Collision other) {
+        if (other.collider.CompareTag("target"))
+        {
+            collideFlag = true;
+        }
     }
 }
