@@ -84,7 +84,8 @@ public class RollerAgent : Agent
         continuousActionsOut[1] = -Input.GetAxis("Vertical");
     }
 
-    private void OnCollisionEnter(Collision other) {
+    private void OnCollisionEnter(Collision other) 
+    {
         if (other.collider.CompareTag("target"))
         {
             collideFlag = true;

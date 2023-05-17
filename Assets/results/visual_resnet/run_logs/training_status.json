@@ -1,0 +1,65 @@
+{
+    "RollerBall": {
+        "checkpoints": [
+            {
+                "steps": 239994,
+                "file_path": "results\\visual_resnet\\RollerBall\\RollerBall-239994.onnx",
+                "reward": 0.8920863309352518,
+                "creation_time": 1684283219.8049731,
+                "auxillary_file_paths": [
+                    "results\\visual_resnet\\RollerBall\\RollerBall-239994.pt"
+                ]
+            },
+            {
+                "steps": 259998,
+                "file_path": "results\\visual_resnet\\RollerBall\\RollerBall-259998.onnx",
+                "reward": 0.8589743589743589,
+                "creation_time": 1684283350.4029908,
+                "auxillary_file_paths": [
+                    "results\\visual_resnet\\RollerBall\\RollerBall-259998.pt"
+                ]
+            },
+            {
+                "steps": 279998,
+                "file_path": "results\\visual_resnet\\RollerBall\\RollerBall-279998.onnx",
+                "reward": 0.9230769230769231,
+                "creation_time": 1684283479.7931938,
+                "auxillary_file_paths": [
+                    "results\\visual_resnet\\RollerBall\\RollerBall-279998.pt"
+                ]
+            },
+            {
+                "steps": 299998,
+                "file_path": "results\\visual_resnet\\RollerBall\\RollerBall-299998.onnx",
+                "reward": 0.9066147859922179,
+                "creation_time": 1684283606.2708147,
+                "auxillary_file_paths": [
+                    "results\\visual_resnet\\RollerBall\\RollerBall-299998.pt"
+                ]
+            },
+            {
+                "steps": 300042,
+                "file_path": "results\\visual_resnet\\RollerBall\\RollerBall-300042.onnx",
+                "reward": 0.9069767441860465,
+                "creation_time": 1684283606.682981,
+                "auxillary_file_paths": [
+                    "results\\visual_resnet\\RollerBall\\RollerBall-300042.pt"
+                ]
+            }
+        ],
+        "final_checkpoint": {
+            "steps": 300042,
+            "file_path": "results\\visual_resnet\\RollerBall.onnx",
+            "reward": 0.9069767441860465,
+            "creation_time": 1684283606.682981,
+            "auxillary_file_paths": [
+                "results\\visual_resnet\\RollerBall\\RollerBall-300042.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.30.0",
+        "torch_version": "1.11.0"
+    }
+}
