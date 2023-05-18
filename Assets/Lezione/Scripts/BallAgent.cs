@@ -10,11 +10,13 @@ public class BallAgent : Agent
     Rigidbody myRigidBody;
     public GameObject targetGO;
     public float forceCoeff = 10;
+    private bool isColliding;
 
     // Start is called before the first frame update
     void Start()
     {
         myRigidBody = GetComponent<Rigidbody>();
+        isColliding = false;
     }
 
     public override void OnEpisodeBegin()
@@ -29,12 +31,27 @@ public class BallAgent : Agent
         targetGO.transform.localPosition = new Vector3(Random.Range(-4f, 4f), 0.5f, Random.Range(-4f, 4f));
     }
 
+    // public override void CollectObservations(VectorSensor sensor)
+    // {
+    //     sensor.AddObservation(transform.localPosition);
+    //     sensor.AddObservation(targetGO.transform.localPosition);
+    //     sensor.AddObservation(myRigidBody.velocity.x);
+    //     sensor.AddObservation(myRigidBody.velocity.z);
+    // }
+
     public override void OnActionReceived(ActionBuffers actions)
     {
         Vector3 azioni = Vector3.zero;
         azioni.x = actions.ContinuousActions[0];
         azioni.z = actions.ContinuousActions[1];
         myRigidBody.AddForce(azioni * forceCoeff);
+
+        if (isColliding)
+        {
+            isColliding = false;
+            SetReward(1f);
+            EndEpisode();
+        }
 
         if (transform.localPosition.y < 0)
         {
@@ -48,6 +65,13 @@ public class BallAgent : Agent
         continuousActionsOut[0] = -Input.GetAxis("Horizontal");
         continuousActionsOut[1] = -Input.GetAxis("Vertical");  
     
+    }
+
+    private void OnCollisionStay(Collision other) {
+        if (other.collider.CompareTag("targetLezione"))
+        {
+            isColliding = true;
+        }
     }
 
 }
