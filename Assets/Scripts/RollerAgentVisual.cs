@@ -81,7 +81,7 @@ public class RollerAgentVisual : Agent
         {
             collideFlag = 0;
             SetReward(-1f);
-            EndEpisode();
+            //EndEpisode();
         }
         // Fell off platform
         else if (transform.localPosition.y < 0)
