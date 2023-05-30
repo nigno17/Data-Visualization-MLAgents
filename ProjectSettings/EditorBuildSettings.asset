@@ -5,16 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/DQNScenario.unity
     guid: b5467f880a93cb24580397d45b85eb36
   - enabled: 0
     path: Assets/Scenes/DQNMulty.unity
     guid: 15138d37dc1163b41a72bf0cd6b4047e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/DQNMultyVideo.unity
     guid: ff92cf8ca486cd947b72c04f8c976420
-  - enabled: 0
-    path: Assets/Scenes/DQNMultyVideo 1.unity
-    guid: 34e606374a7621f4da505f4c0a4f6263
   m_configObjects: {}
